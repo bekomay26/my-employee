@@ -1,6 +1,6 @@
 (ns app.page.home
   (:require
-    [clojure.string :as str]
+    [clojure.string :refer [lower-case]]
     ["antd" :refer [Table Input]]
     [app.components.employee-form :refer [employee-form]]
     [app.components.toast :refer [toast]]
@@ -10,13 +10,13 @@
     [re-frame.core :as rf]))
 
 (defn sort-dec [a b]
-      (compare (str/lower-case a) (str/lower-case b)))
+      (compare (lower-case a) (lower-case b)))
 
 (def table-columns [
-                    {:title "Employee" :dataIndex "employee" :sorter (fn [^js a b] (sort-dec (.-employee a) (.-employee b))) :showSorterTooltip {:target "full-header"}}
-                    {:title "Department" :dataIndex "department" :sorter (fn [^js a b] (sort-dec (.-department a) (.-department b)))}
-                    {:title "Title" :dataIndex "title" :sorter (fn [^js a b] (sort-dec (.-title a) (.-title b)))}
-                    {:title "Salary" :dataIndex "salary" :sorter (fn [^js a b] (- (.-salary a) (.-salary b)))}
+                    {:title "Employee" :dataIndex "employee" :sorter (fn [^js a ^js b] (sort-dec (.-employee a) (.-employee b)))}
+                    {:title "Department" :dataIndex "department" :sorter (fn [^js a ^js b] (sort-dec (.-department a) (.-department b)))}
+                    {:title "Title" :dataIndex "title" :sorter (fn [^js a ^js b] (sort-dec (.-title a) (.-title b)))}
+                    {:title "Salary" :dataIndex "salary" :sorter (fn [^js a ^js b] (- (.-salary a) (.-salary b)))}
                     ])
 
 
@@ -30,8 +30,7 @@
                   (set-show-toast! false))
 
             (defn on-search [value _ _]
-                  (rf/dispatch [:search-employee value])
-                  (js/console.log value))
+                  (rf/dispatch [:search-employee value]))
 
             (def search-val
               (hooks/use-subscribe [:employee-search-value])
@@ -61,7 +60,8 @@
                      (clj->js
                        {:columns table-columns
                         :dataSource (if (zero? (count search-val)) all-employee-results filtered-results)
-                        :pagination false}))
+                        :pagination false
+                        :rowKey "created-at"}))
 
                   ($ :dialog.modal {:ref ref}
                      ($ employee-form {:on-close #(.close @ref) :on-success on-success}))))))
