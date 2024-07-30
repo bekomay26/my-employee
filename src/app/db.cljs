@@ -3,7 +3,7 @@
     [re-frame.core :as rf]))
 
 (def initial-app-db
-  {:employees []})
+  {:employees [] :search-value nil :search-results []})
 
 (rf/reg-event-db
   :initialize-db

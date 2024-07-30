@@ -8,11 +8,11 @@
     [re-frame.core :as rf]))
 
 
-(def employee-options [{:value "engineering" :label "Engineering"}
-                       {:value "hr" :label "HR"}
-                       {:value "marketing" :label "Marketing"}
-                       {:value "product" :label "Product"}
-                       {:value "sales" :label "Sales"}])
+(def employee-options [{:value "Engineering" :label "Engineering"}
+                       {:value "HR" :label "HR"}
+                       {:value "Marketing" :label "Marketing"}
+                       {:value "Product" :label "Product"}
+                       {:value "Sales" :label "Sales"}])
 
 (defui employee-form [{:keys [on-close on-success]}]
        (def form (let [[the-form] (.useForm Form)] the-form))
@@ -21,14 +21,8 @@
              (.resetFields form)
              (on-close))
 
-       (defn on-dept-change [val va2]
-             (js/console.log "fdg ---- values")
-             ;(js/console.log val)
-             (js/console.log val2)
-             )
-
        (defn on-finish [values]
-             (rf/dispatch [:employee/add (assoc (js->clj values) :created-at (js/Date.now) :department (.-label (.-department values)))])
+             (rf/dispatch [:add-employee (assoc (js->clj values) "created-at" (js/Date.now) "department" (.-value (.-department values)))])
              (close-modal)
              (on-success))
 
@@ -43,7 +37,6 @@
                         :options     (clj->js employee-options)
                         :placeholder "Department"
                         :class       "department-list"
-                        :on-change   on-dept-change
                         }))
 
           ($ Form.Item {:name "title" :rules (clj->js [{:required true :message "Required"}])}

@@ -1,6 +1,6 @@
 (ns app.subs
-  (:require [re-frame.core :as rf]))
+  (:require [re-frame.core :refer [reg-sub]]))
 
-(rf/reg-sub :app/todos
+(reg-sub :all-employees
   (fn [db _]
-    (:todos db)))
+    (:employees db)))

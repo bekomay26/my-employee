@@ -4,7 +4,9 @@
     [uix.dom]
     [app.page.home :refer [home]]
     [re-frame.core :as rf]
-    [app.db]))
+    [app.db]
+    [app.subs]
+    [app.events]))
 
 
 (defui app []
