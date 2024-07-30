@@ -2,15 +2,14 @@
   (:require
     [uix.core :as uix :refer [defui $]]
     [uix.dom]
-    [app.components.button :refer [button]]
+    [app.page.home :refer [home]]
     [re-frame.core :as rf]
     [app.db]))
 
 
 (defui app []
        ($ :.app
-          ($ button {:class "primary"} "Primary")
-          ($ button {:class "secondary"} "Secondary")))
+          ($ home)))
 
 (defonce root
          (uix.dom/create-root (js/document.getElementById "root")))

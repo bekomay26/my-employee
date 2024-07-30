@@ -38,25 +38,30 @@ a {
     font-weight: 500;
 }
 
-.app {
-    display: flex;
-    flex-direction: column;
-    width: 460px;
-    background: #fafafa;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    border: 2px solid var(--color-accent);
+div.home-page {
+    width: 100vw;
+    height: 100vh;
 }
 
-.app-header {
+div.page-header {
+    width: 100%;
+    background-color: var(--secondary-background-color);
+    height: 60px;
     display: flex;
-    justify-content: center;
-    padding: 8px 0;
+    align-items: center;
+    padding: 5px 20px;
 }
 
-.app-footer {
-    text-align: center;
-    padding: 8px 0;
+p.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+main.page-body {
+    overflow-y: auto;
+    position: relative;
+    padding: 20px;
 }
 
 button {
@@ -159,7 +164,6 @@ form.employee-form div.ant-input-number:focus-within {
 input.form-input, input.form-input:hover {
     border: 1px solid black;
     height: 40px;
-    /*margin-bottom: 20px;*/
     padding: 2px 8px;
     width: 100%;
     color: black;
@@ -171,9 +175,7 @@ input.form-input, input.form-input:hover {
 }
 
 form.employee-form div.ant-input-number {
-    /*border: 0;*/
     width: 100%;
-    /*margin-bottom: 20px;*/
     border-radius: 0;
     border: 1px solid black;
 }
