@@ -59,6 +59,7 @@
                   ($ Table
                      (clj->js
                        {:columns table-columns
+                        ;show all employees if there's no search value. Else show the filtered result
                         :dataSource (if (zero? (count search-val)) all-employee-results filtered-results)
                         :pagination false
                         :rowKey "created-at"}))
