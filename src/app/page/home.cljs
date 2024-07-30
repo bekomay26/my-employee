@@ -16,7 +16,7 @@
                     {:title "Employee" :dataIndex "employee" :sorter (fn [^js a ^js b] (sort-dec (.-employee a) (.-employee b)))}
                     {:title "Department" :dataIndex "department" :sorter (fn [^js a ^js b] (sort-dec (.-department a) (.-department b)))}
                     {:title "Title" :dataIndex "title" :sorter (fn [^js a ^js b] (sort-dec (.-title a) (.-title b)))}
-                    {:title "Salary" :dataIndex "salary" :sorter (fn [^js a ^js b] (- (.-salary a) (.-salary b)))}
+                    {:title "Salary" :dataIndex "salary" :sorter (fn [^js a ^js b] (- (.-salary a) (.-salary b))) :render (fn [text] (clojure.string/replace (str "$ " text) #"\B(?=(\d{3})+(?!\d))" ","))}
                     ])
 
 
