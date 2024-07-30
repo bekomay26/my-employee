@@ -122,3 +122,124 @@ button.toast-close-btn {
     top: 5px;
     right: 5px;
 }
+
+dialog.toast-dialog {
+    width: 100%;
+    border: 0;
+    padding: 0;
+}
+
+/*---- FORM ----*/
+.employee-form {
+    background-color: #FFFFFF;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+form.employee-form div.ant-input-number-input-wrap input.ant-input-number-input::placeholder,
+input.ant-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+input.form-input:focus-within, input.form-input:focus-visible,
+.department-list:focus-within, .department-list:focus-within > div,
+form.employee-form div.ant-input-number:focus-within {
+    outline: 1px solid black;
+    border-color: black;
+    box-shadow: none;
+}
+
+input.form-input, input.form-input:hover {
+    border: 1px solid black;
+    height: 40px;
+    /*margin-bottom: 20px;*/
+    padding: 2px 8px;
+    width: 100%;
+    color: black;
+    border-radius: 0;
+}
+
+.ant-form-item-explain-error {
+    font-size: 12px;
+}
+
+form.employee-form div.ant-input-number {
+    /*border: 0;*/
+    width: 100%;
+    /*margin-bottom: 20px;*/
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+form.employee-form div.ant-input-number-input-wrap input.ant-input-number-input {
+    height: 40px;
+    padding: 2px 8px;
+    width: 100%;
+    color: black;
+    border-radius: 0;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.action-buttons button {
+    font-size: 14px;
+    width: 120px;
+}
+
+.action-buttons button.primary {
+    margin-left: 20px;
+}
+
+.department-list > div {
+    border-radius: 0;
+    border: 1px solid black;
+    width: 100%;
+    box-shadow: none;
+}
+
+.department-list > div:hover {
+    border: 1px solid black;
+}
+
+.department-list input {
+    color: black;
+}
+
+.department-list div svg > path {
+    fill: black;
+}
+
+button.close-btn {
+    height: 30px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 0;
+    border: 1px solid #000000;
+}
+
+button.close-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+dialog.modal {
+    background: rgba(0, 0, 0, 0.1);
+    border: 0;
+    padding: 0;
+}

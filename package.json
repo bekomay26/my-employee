@@ -18,6 +18,8 @@
     "use-sync-external-store": "^1.2.0"
   },
   "dependencies": {
-    "highlight.js": "11.5.1"
+    "antd": "^5.19.4",
+    "highlight.js": "11.5.1",
+    "react-select": "^5.8.0"
   }
 }
