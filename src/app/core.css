@@ -1,6 +1,8 @@
 :root {
-    --color-accent: #266cf5;
-    --color-text: #173878;
+    --text-color: #000000;
+    --main-background-color: #ffffff;
+    --secondary-background-color: #000000;
+    --main-border: 1px solid #000000;
 }
 
 html {
@@ -57,51 +59,24 @@ a {
     padding: 8px 0;
 }
 
-.text-input {
-    font-size: 18px;
-    padding: 8px 12px;
-    border-left: none;
-    border-right: none;
-    border-top: 2px solid var(--color-accent);
-    border-bottom: 2px solid var(--color-accent);
-    color: var(--color-text);
-}
-
-.todo-item {
-    border-bottom: 2px solid var(--color-accent);
-    font-size: 18px;
-    padding: 8px 12px;
-    background: rgba(0, 0, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-weight: 500;
-}
-
-.todo-item-control {
-    width: 20px;
-    height: 20px;
-    margin: 0 12px 0 0;
-}
-
-.todo-item-text {
-    flex: 1;
-    color: var(--color-text);
-}
-
-.todo-item-delete-button {
-    border: none;
-    background: transparent;
-    font-size: 20px;
-    color: #ff3c3c;
+button {
+    height: 40px;
     cursor: pointer;
+    padding: 0 10px;
+    border: none;
 }
 
-.todo-item-text-field {
-    font-size: 18px;
-    border: none;
-    background: transparent;
-    color: var(--color-text);
-    outline: none;
-    flex: 1;
+button:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+button.primary {
+    background-color: black;
+    color: white;
+}
+
+button.secondary {
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    color: #000000;
 }
