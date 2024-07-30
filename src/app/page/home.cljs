@@ -1,7 +1,7 @@
 (ns app.page.home
   (:require
     [clojure.string :as str]
-    ["antd" :refer [Table]]
+    ["antd" :refer [Table Input]]
     [app.components.employee-form :refer [employee-form]]
     [app.components.toast :refer [toast]]
     [app.components.button :refer [button]]
@@ -29,6 +29,22 @@
             (defn on-close-toast []
                   (set-show-toast! false))
 
+            (defn on-search [value _ _]
+                  (rf/dispatch [:search-employee value])
+                  (js/console.log value))
+
+            (def search-val
+              (hooks/use-subscribe [:employee-search-value])
+              )
+
+            (def all-employee-results
+              (hooks/use-subscribe [:all-employees])
+              )
+
+            (def filtered-results
+              (hooks/use-subscribe [:filtered-employees])
+              )
+
             ($ :div.home-page
                ($ :div.page-header
                   ($ :p.logo "Employee"))
@@ -37,6 +53,8 @@
                   ($ button
                      {:type "button" :class "secondary" :on-click #(.showModal @ref)}
                      "+ New Employee")
+                  ($ (.-Search Input)
+                     {:placeholder "Search by Name/ Department/ Title" :on-search on-search})
 
                   ;TODO: add search
 
