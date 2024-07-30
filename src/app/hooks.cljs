@@ -1,3 +1,4 @@
+;NOTE: I didn't write this file. It came with the Uix library
 (ns app.hooks
   (:require ["use-sync-external-store/with-selector" :refer [useSyncExternalStoreWithSelector]]
             [scheduler]
