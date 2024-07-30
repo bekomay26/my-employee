@@ -22,7 +22,7 @@
              (on-close))
 
        (defn on-finish [values]
-             (rf/dispatch [:add-employee (assoc (js->clj values) "created-at" (js/Date.now) "department" (.-value (.-department values)))])
+             (rf/dispatch [:add-employee (assoc (js->clj values :keywordize-keys true) :created-at (js/Date.now) :department (.-value (.-department values)))])
              (close-modal)
              (on-success))
 

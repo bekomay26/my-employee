@@ -40,7 +40,11 @@
 
                   ;TODO: add search
 
-                  ($ Table (clj->js {:columns table-columns :dataSource (hooks/use-subscribe [:all-employees]) :showSorterTooltip {:target "sorter-icon"} :pagination false}))
+                  ($ Table
+                     (clj->js
+                       {:columns table-columns
+                        :dataSource (if (zero? (count search-val)) all-employee-results filtered-results)
+                        :pagination false}))
 
                   ($ :dialog.modal {:ref ref}
                      ($ employee-form {:on-close #(.close @ref) :on-success on-success}))))))
