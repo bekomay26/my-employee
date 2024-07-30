@@ -1,4 +1,11 @@
-(ns app.db)
+(ns app.db
+  (:require
+    [re-frame.core :as rf]))
 
-(def default-db
-  {:todos (sorted-map-by >)})
+(def initial-app-db
+  {:employees []})
+
+(rf/reg-event-db
+  :initialize-db
+  (fn [_ _]
+      initial-app-db))

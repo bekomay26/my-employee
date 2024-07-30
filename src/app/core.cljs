@@ -3,19 +3,21 @@
     [uix.core :as uix :refer [defui $]]
     [uix.dom]
     [app.components.button :refer [button]]
-    [re-frame.core :as rf]))
+    [re-frame.core :as rf]
+    [app.db]))
 
 
 (defui app []
-    ($ :.app
-      ($ button {:class "primary"} "Primary")
-      ($ button {:class "secondary"} "Secondary")))
+       ($ :.app
+          ($ button {:class "primary"} "Primary")
+          ($ button {:class "secondary"} "Secondary")))
 
 (defonce root
-  (uix.dom/create-root (js/document.getElementById "root")))
+         (uix.dom/create-root (js/document.getElementById "root")))
 
 (defn render []
-  (uix.dom/render-root ($ app) root))
+      (rf/dispatch-sync [:initialize-db])
+      (uix.dom/render-root ($ app) root))
 
 (defn ^:export init []
-  (render))
+      (render))
