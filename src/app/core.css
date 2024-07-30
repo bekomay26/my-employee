@@ -80,3 +80,45 @@ button.secondary {
     border: 1px solid #000000;
     color: #000000;
 }
+
+/* --- Toast --- */
+
+div.toast-container {
+    background-color: var(--main-background-color);
+    border: var(--main-border);
+    position: absolute;
+    padding: 0;
+    right: 5px;
+    top: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    width: 200px;
+    z-index: 1;
+}
+
+div.toast-body {
+    display: flex;
+    align-items: center;
+    padding: 5px 30px 5px 5px;
+}
+
+div.toast-progress {
+    background-color: var(--secondary-background-color);
+    height: 5px;
+    animation: progress-animation 5s;
+}
+
+@keyframes progress-animation {
+    from { width: 0 }
+    to   { width: 100% }
+}
+
+p.toast-message {
+    color: var(--text-color);
+}
+
+button.toast-close-btn {
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
