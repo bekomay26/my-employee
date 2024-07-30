@@ -103,7 +103,7 @@ div.toast-container {
     right: 5px;
     top: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    width: 200px;
+    width: min(260px, 80%);
     z-index: 1;
 }
 
@@ -111,6 +111,7 @@ div.toast-body {
     display: flex;
     align-items: center;
     padding: 5px 30px 5px 5px;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 div.toast-progress {
