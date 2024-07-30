@@ -50,13 +50,12 @@
                   ($ :p.logo "Employee"))
                ($ :main.page-body
                   ($ toast {:message "Employee successfully created" :is-open show-toast :on-close on-close-toast})
-                  ($ button
+                  ($ :div.new-button-wrapper ($ button
                      {:type "button" :class "secondary" :on-click #(.showModal @ref)}
-                     "+ New Employee")
+                     "+ New Employee"))
+
                   ($ (.-Search Input)
                      {:placeholder "Search by Name/ Department/ Title" :on-search on-search})
-
-                  ;TODO: add search
 
                   ($ Table
                      (clj->js

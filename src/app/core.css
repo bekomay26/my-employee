@@ -64,6 +64,13 @@ main.page-body {
     padding: 20px;
 }
 
+div.new-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
 button {
     height: 40px;
     cursor: pointer;
@@ -155,13 +162,16 @@ input.ant-input::placeholder {
 
 input.form-input:focus-within, input.form-input:focus-visible,
 .department-list:focus-within, .department-list:focus-within > div,
-form.employee-form div.ant-input-number:focus-within {
+form.employee-form div.ant-input-number:focus-within,
+span.ant-input-search > span > input:focus-within {
     outline: 1px solid black;
-    border-color: black;
+    border-color: black !important;
     box-shadow: none;
 }
 
-input.form-input, input.form-input:hover {
+input.form-input, input.form-input:hover,
+span.ant-input-search > span > input,
+span.ant-input-search > span > input:hover {
     border: 1px solid black;
     height: 40px;
     padding: 2px 8px;
@@ -244,4 +254,24 @@ dialog.modal {
     background: rgba(0, 0, 0, 0.1);
     border: 0;
     padding: 0;
+}
+
+/*---- Search Input ----*/
+
+span.ant-input-search {
+    margin: 20px 0;
+    display: block;
+    width: min(100%, 420px);
+}
+span.ant-input-search > span > span.ant-input-group-addon > button.ant-input-search-button,
+span.ant-input-search > span > span.ant-input-group-addon > button.ant-input-search-button:hover {
+    border: 1px solid #000000;
+    height: 40px;
+    border-start-end-radius: 0 !important;
+    border-end-end-radius: 0 !important;
+    display: block;
+}
+
+span.ant-input-search > span > input:hover {
+    border-color: black !important;
 }
